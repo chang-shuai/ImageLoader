@@ -6,7 +6,7 @@ import android.util.LruCache;
 public class BitmapLruCache {
 
     private static LruCache<String, Bitmap> mLruCache;
-    private static BitmapLruCache mBitmapLruCache;
+    private static final BitmapLruCache mBitmapLruCache = new BitmapLruCache();
 
     /**
      * 获取最大的可用内存, 取1/8为LruCache使用, 重写sizeOf方法,
@@ -25,9 +25,7 @@ public class BitmapLruCache {
     }
 
     public static BitmapLruCache newInstance() {
-        if (mBitmapLruCache == null) {
-            mBitmapLruCache = new BitmapLruCache();
-        }
+
         return mBitmapLruCache;
     }
 
